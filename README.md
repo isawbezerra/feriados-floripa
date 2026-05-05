@@ -30,8 +30,8 @@ https://raw.githubusercontent.com/isawbezerra/feriados_floripa/main/feriados_FLN
 
 ```bash
 # Clone repository
-git clone https://github.com/isawbezerra/feriados-floripa.git
-cd feriados-floripa
+git clone https://github.com/isawbezerra/feriados_floripa.git
+cd feriados_floripa
 
 # Install dependencies
 pip install -r requirements.txt
@@ -69,17 +69,17 @@ The calendar uses emojis to indicate event types:
 
 ### Cultural Dates (🔵)
 - International Women's Day
-- Mother's Day (2nd Sunday of May)
-- Father's Day (2nd Sunday of August)
-- Valentine's Day (June 12)
+- Mother's Day 
+- Father's Day 
+- Valentine's Day 
 - LGBT Pride Day
 - Children's Day
 - Black Friday
 - Festa Junina Season
 
 ### Conditional Events
-- **Elections** (🔴) - Only in election years (every 2 years)
-- **World Cup** (🔵) - Only in World Cup years (every 4 years)
+- **Elections** (🔴)
+- **World Cup** (🔵)
 
 ## 🔄 Automatic Updates
 
@@ -88,32 +88,10 @@ The calendar is automatically regenerated weekly via GitHub Actions, ensuring:
 - Automatic calculation of movable holidays
 - Fresh subscription without manual updates
 
-## 🛠️ Development
-
-### Improvements in Latest Version
-
-**Fixes:**
-- ✅ World Cup only appears in correct years (2022, 2026, 2030...)
-- ✅ Elections only appear in election years
-- ✅ Added Mother's Day (was missing)
-- ✅ Proper calculation of Father's Day and Mother's Day (dynamic Sundays)
-- ✅ Added Ash Wednesday (partial working day)
-- ✅ Better error handling
-- ✅ Added VTIMEZONE component for better calendar compatibility
-- ✅ Improved code documentation
-
-**Code Quality:**
-- Type hints on functions
-- Docstrings
-- Error handling
-- Constants for configuration
-- Helper functions for date calculations
-- Better code organization
-
 ### Project Structure
 
 ```
-feriados-floripa/
+feriados_floripa/
 ├── generate.py              # Main script
 ├── requirements.txt         # Python dependencies
 ├── feriados_FLN.ics        # Generated ICS file
@@ -135,10 +113,6 @@ Contributions are welcome! To add or fix holidays:
 ## 📄 License
 
 MIT License - feel free to use and modify
-
-## 🙋‍♀️ Author
-
-Created by [@isawbezerra](https://github.com/isawbezerra)
 
 ---
 
