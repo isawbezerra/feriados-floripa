@@ -8,8 +8,6 @@ Gerador automático de calendário ICS com feriados nacionais, estaduais e munic
 - ✅ Datas municipais de Florianópolis
 - ✅ Datas culturais e comemorativas
 - ✅ Cálculo automático de feriados móveis (Carnaval, Páscoa, Corpus Christi)
-- ✅ Mother's Day e Father's Day calculados dinamicamente
-- ✅ Eventos condicionais (eleições e Copa do Mundo apenas nos anos corretos)
 - ✅ Geração automática via GitHub Actions
 - ✅ Timezone correto (America/Sao_Paulo)
 
