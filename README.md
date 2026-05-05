@@ -17,7 +17,7 @@ Gerador automático de calendário ICS com feriados nacionais, estaduais e munic
 
 Copy this URL and add to your calendar app:
 ```
-https://raw.githubusercontent.com/isawbezerra/feriados-floripa/main/feriados_FLN.ics
+https://raw.githubusercontent.com/isawbezerra/feriados_floripa/main/feriados_FLN.ics
 ```
 
 **Instructions by app:**
