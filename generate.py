@@ -136,8 +136,8 @@ def generate_events():
                   f"[BR] {EMOJI['cultural']} Dia das Crianças", "Children's Day."),
             event(f"blackfriday-{year}", black_friday, next_day(black_friday),
                   f"[BR] {EMOJI['cultural']} Black Friday", "Retail event."),
-            event(f"festa-junina-{year}", date(year, 6, 1), date(year, 7, 1),
-                  f"[BR] {EMOJI['cultural']} Festa Junina Season", "Cultural month."),
+            event(f"festa-junina-{year}", date(year, 6, 1), date(year, 6, 2),
+                  f"[BR] {EMOJI['cultural']} Festa Junina", "Cultural month."),
         ]
 
         # =========================
@@ -182,10 +182,10 @@ def generate_events():
             ]
 
         if year in WORLD_CUP_PERIODS:
-            start, end = WORLD_CUP_PERIODS[year]
+            start, _ = WORLD_CUP_PERIODS[year]
             events.append(
-                event(f"copa-{year}", start, next_day(end),
-                      f"[BR] {EMOJI['cultural']} Copa do Mundo", "FIFA World Cup period.")
+                event(f"copa-{year}", start, next_day(start),
+                      f"[BR] {EMOJI['cultural']} Copa do Mundo", "FIFA World Cup starts today.")
             )
 
     return events
