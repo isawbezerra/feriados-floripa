@@ -83,27 +83,52 @@ def generate_events():
         # =========================
         events += [
             event(f"newyear-{year}", date(year, 1, 1), date(year, 1, 2),
-                  f"[BR] {EMOJI['holiday']} Confraternização Universal", "New Year's Day."),
+                  f"[BR] {EMOJI['holiday']} Confraternização Universal",
+                  "New Year's Day. Many people wear white for good luck."),
+
             event(f"tiradentes-{year}", date(year, 4, 21), date(year, 4, 22),
-                  f"[BR] {EMOJI['holiday']} Tiradentes", "Honors Brazil's independence movement."),
+                  f"[BR] {EMOJI['holiday']} Tiradentes",
+                  "Honors a key figure in Brazil's independence movement."),
+
             event(f"trabalho-{year}", date(year, 5, 1), date(year, 5, 2),
-                  f"[BR] {EMOJI['holiday']} Dia do Trabalho", "Labor Day."),
+                  f"[BR] {EMOJI['holiday']} Dia do Trabalho",
+                  "Labor Day. Day off nationwide."),
+
             event(f"independencia-{year}", date(year, 9, 7), date(year, 9, 8),
-                  f"[BR] {EMOJI['holiday']} Independência do Brasil", "National independence day."),
+                  f"[BR] {EMOJI['holiday']} Independência do Brasil",
+                  "Independence Day. Parades and civic events."),
+
             event(f"aparecida-{year}", date(year, 10, 12), date(year, 10, 13),
-                  f"[BR] {EMOJI['holiday']} Nossa Senhora Aparecida", "Religious holiday."),
+                  f"[BR] {EMOJI['holiday']} Nossa Senhora Aparecida",
+                  "Brazil's patron saint."),
+
+            event(f"servidor-{year}", date(year, 10, 28), date(year, 10, 29),
+                  f"[BR] {EMOJI['partial']} Dia do Servidor Público",
+                  "Public sector holiday. Most government offices closed."),
+
             event(f"finados-{year}", date(year, 11, 2), date(year, 11, 3),
-                  f"[BR] {EMOJI['holiday']} Finados", "Day to honor the deceased."),
+                  f"[BR] {EMOJI['holiday']} Finados",
+                  "Day to honor the deceased."),
+
             event(f"republica-{year}", date(year, 11, 15), date(year, 11, 16),
-                  f"[BR] {EMOJI['holiday']} Proclamação da República", "Republic proclamation."),
+                  f"[BR] {EMOJI['holiday']} Proclamação da República",
+                  "Marks Brazil's shift to a republic."),
+
             event(f"consciencia-{year}", date(year, 11, 20), date(year, 11, 21),
-                  f"[BR] {EMOJI['holiday']} Dia da Consciência Negra", "Afro-Brazilian culture."),
+                  f"[BR] {EMOJI['holiday']} Dia da Consciência Negra",
+                  "Celebrates Afro-Brazilian culture and history."),
+
             event(f"natal-{year}", date(year, 12, 25), date(year, 12, 26),
-                  f"[BR] {EMOJI['holiday']} Natal", "Christmas Day."),
+                  f"[BR] {EMOJI['holiday']} Natal",
+                  "Christmas Day. Family celebrations."),
+
             event(f"vnat-{year}", date(year, 12, 24), date(year, 12, 25),
-                  f"[BR] {EMOJI['partial']} Véspera de Natal", "Partial working day."),
+                  f"[BR] {EMOJI['partial']} Véspera de Natal",
+                  "Christmas Eve. Public sector typically works until 14:00."),
+
             event(f"vano-{year}", date(year, 12, 31), next_day(date(year, 12, 31)),
-                  f"[BR] {EMOJI['partial']} Véspera de Ano Novo", "New Year's Eve."),
+                  f"[BR] {EMOJI['partial']} Véspera de Ano Novo",
+                  "New Year's Eve. Public sector typically works until 14:00."),
         ]
 
         # =========================
@@ -111,7 +136,8 @@ def generate_events():
         # =========================
         events.append(
             event(f"fln-{year}", date(year, 3, 23), date(year, 3, 24),
-                  f"[FLN] {EMOJI['holiday']} Aniversário de Florianópolis", "City anniversary.")
+                  f"[FLN] {EMOJI['holiday']} Aniversário de Florianópolis",
+                  "Celebrates the founding of the city.")
         )
 
         # =========================
@@ -123,28 +149,43 @@ def generate_events():
 
         events += [
             event(f"diamulher-{year}", date(year, 3, 8), date(year, 3, 9),
-                  f"[BR] {EMOJI['cultural']} Dia da Mulher", "International Women's Day."),
+                  f"[BR] {EMOJI['cultural']} Dia da Mulher",
+                  "International Women's Day."),
+
             event(f"maes-{year}", mothers_day, next_day(mothers_day),
-                  f"[BR] {EMOJI['cultural']} Dia das Mães", "Mother's Day."),
+                  f"[BR] {EMOJI['cultural']} Dia das Mães",
+                  "Mother's Day."),
+
             event(f"namorados-{year}", date(year, 6, 12), date(year, 6, 13),
-                  f"[BR] {EMOJI['cultural']} Dia dos Namorados", "Brazilian Valentine's Day."),
+                  f"[BR] {EMOJI['cultural']} Dia dos Namorados",
+                  "Brazil's Valentine's Day."),
+
             event(f"lgbt-{year}", date(year, 6, 28), date(year, 6, 29),
-                  f"[BR] {EMOJI['cultural']} Dia do Orgulho LGBTQIA+", "Pride events."),
+                  f"[BR] {EMOJI['cultural']} Dia do Orgulho LGBTQIA+",
+                  "LGBTQIA+ Pride Day. Parades and public events may occur."),
+
             event(f"pais-{year}", fathers_day, next_day(fathers_day),
-                  f"[BR] {EMOJI['cultural']} Dia dos Pais", "Father's Day."),
+                  f"[BR] {EMOJI['cultural']} Dia dos Pais",
+                  "Father's Day."),
+
             event(f"criancas-{year}", date(year, 10, 12), date(year, 10, 13),
-                  f"[BR] {EMOJI['cultural']} Dia das Crianças", "Children's Day."),
+                  f"[BR] {EMOJI['cultural']} Dia das Crianças",
+                  "Children's Day."),
+
             event(f"blackfriday-{year}", black_friday, next_day(black_friday),
-                  f"[BR] {EMOJI['cultural']} Black Friday", "Retail event."),
+                  f"[BR] {EMOJI['cultural']} Black Friday",
+                  "Annual retail event."),
+
             event(f"festa-junina-{year}", date(year, 6, 1), date(year, 6, 2),
-                  f"[BR] {EMOJI['cultural']} Festa Junina", "Cultural month."),
+                  f"[BR] {EMOJI['cultural']} Festa Junina",
+                  "Cultural month."),
         ]
 
         # =========================
         # EASTER-BASED HOLIDAYS
         # =========================
-        easter_sunday  = easter(year)
-        good_friday    = easter_sunday - timedelta(days=2)
+        easter_sunday    = easter(year)
+        good_friday      = easter_sunday - timedelta(days=2)
         carnival_monday  = easter_sunday - timedelta(days=47)
         carnival_tuesday = easter_sunday - timedelta(days=46)
         ash_wednesday    = easter_sunday - timedelta(days=45)
@@ -152,17 +193,28 @@ def generate_events():
 
         events += [
             event(f"carnaval-mon-{year}", carnival_monday, next_day(carnival_monday),
-                  f"[BR] {EMOJI['holiday']} Carnaval (Segunda)", "Carnival Monday."),
+                  f"[BR] {EMOJI['holiday']} Carnaval (Segunda)",
+                  "Carnival Monday. Street parties and celebrations everywhere."),
+
             event(f"carnaval-tue-{year}", carnival_tuesday, next_day(carnival_tuesday),
-                  f"[BR] {EMOJI['holiday']} Carnaval (Terça)", "Carnival Tuesday."),
+                  f"[BR] {EMOJI['holiday']} Carnaval (Terça)",
+                  "Carnival Tuesday. Peak of the festivities."),
+
             event(f"ash-wed-{year}", ash_wednesday, next_day(ash_wednesday),
-                  f"[BR] {EMOJI['partial']} Quarta-feira de Cinzas", "Ash Wednesday (partial)."),
+                  f"[BR] {EMOJI['partial']} Quarta-feira de Cinzas",
+                  "End of Carnival. Public sector usually starts work at 14:00."),
+
             event(f"goodfriday-{year}", good_friday, next_day(good_friday),
-                  f"[BR] {EMOJI['holiday']} Paixão de Cristo", "Good Friday."),
+                  f"[BR] {EMOJI['holiday']} Paixão de Cristo",
+                  "Good Friday. Religious observance."),
+
             event(f"easter-{year}", easter_sunday, next_day(easter_sunday),
-                  f"[BR] {EMOJI['cultural']} Domingo de Páscoa", "Easter Sunday."),
+                  f"[BR] {EMOJI['cultural']} Domingo de Páscoa",
+                  "Easter Sunday. Family time and chocolate eggs."),
+
             event(f"corpus-{year}", corpus_christi, next_day(corpus_christi),
-                  f"[BR] {EMOJI['holiday']} Corpus Christi", "Religious observance."),
+                  f"[BR] {EMOJI['holiday']} Corpus Christi",
+                  "Known for decorated streets in many cities. Religious observance."),
         ]
 
         # =========================
@@ -176,16 +228,19 @@ def generate_events():
             round1, round2 = ELECTION_ROUNDS[year]
             events += [
                 event(f"eleicoes1-{year}", round1, next_day(round1),
-                      f"[BR] {EMOJI['holiday']} Eleições — 1º Turno", "Voting day."),
+                      f"[BR] {EMOJI['holiday']} Eleições — 1º Turno",
+                      "Voting day."),
                 event(f"eleicoes2-{year}", round2, next_day(round2),
-                      f"[BR] {EMOJI['holiday']} Eleições — 2º Turno", "Runoff if needed."),
+                      f"[BR] {EMOJI['holiday']} Eleições — 2º Turno",
+                      "Runoff if needed."),
             ]
 
         if year in WORLD_CUP_PERIODS:
             start, _ = WORLD_CUP_PERIODS[year]
             events.append(
                 event(f"copa-{year}", start, next_day(start),
-                      f"[BR] {EMOJI['cultural']} Copa do Mundo", "FIFA World Cup starts today.")
+                      f"[BR] {EMOJI['cultural']} Copa do Mundo — Início",
+                      "FIFA World Cup begins. Brazil match days may affect company schedules.")
             )
 
     return events
