@@ -19,8 +19,6 @@ EMOJI = {
 }
 
 # Explicit event dates — add future editions as confirmed by official sources.
-# Each entry is (round1_date, round2_date) for elections,
-# and (start_date, end_date_inclusive) for World Cup.
 ELECTION_ROUNDS: dict[int, tuple[date, date]] = {
     # Source: TSE Resolução nº 23.760 (março/2026)
     2026: (date(2026, 10, 4), date(2026, 10, 25)),
@@ -54,6 +52,7 @@ def next_day(d: date) -> date:
 
 
 def get_mothers_day(year: int) -> date:
+    """2nd Sunday of May."""
     may_first = date(year, 5, 1)
     days_until_sunday = (6 - may_first.weekday()) % 7
     first_sunday = may_first + timedelta(days=days_until_sunday)
@@ -61,17 +60,27 @@ def get_mothers_day(year: int) -> date:
 
 
 def get_fathers_day(year: int) -> date:
+    """2nd Sunday of August."""
     aug_first = date(year, 8, 1)
     days_until_sunday = (6 - aug_first.weekday()) % 7
     first_sunday = aug_first + timedelta(days=days_until_sunday)
     return first_sunday + timedelta(days=7)
 
 
+def get_black_friday(year: int) -> date:
+    """Last Friday of November."""
+    nov30 = date(year, 11, 30)
+    days_back = (nov30.weekday() - 4) % 7
+    return nov30 - timedelta(days=days_back)
+
+
 def generate_events():
     events = []
 
     for year in range(START_YEAR, START_YEAR + YEARS_AHEAD):
+        # =========================
         # FIXED NATIONAL HOLIDAYS
+        # =========================
         events += [
             event(f"newyear-{year}", date(year, 1, 1), date(year, 1, 2),
                   f"[BR] {EMOJI['holiday']} Confraternização Universal", "New Year's Day."),
@@ -97,15 +106,20 @@ def generate_events():
                   f"[BR] {EMOJI['partial']} Véspera de Ano Novo", "New Year's Eve."),
         ]
 
+        # =========================
         # FLORIANÓPOLIS
+        # =========================
         events.append(
             event(f"fln-{year}", date(year, 3, 23), date(year, 3, 24),
                   f"[FLN] {EMOJI['holiday']} Aniversário de Florianópolis", "City anniversary.")
         )
 
+        # =========================
         # CULTURAL DAYS
-        mothers_day = get_mothers_day(year)
-        fathers_day = get_fathers_day(year)
+        # =========================
+        mothers_day  = get_mothers_day(year)
+        fathers_day  = get_fathers_day(year)
+        black_friday = get_black_friday(year)
 
         events += [
             event(f"diamulher-{year}", date(year, 3, 8), date(year, 3, 9),
@@ -120,19 +134,21 @@ def generate_events():
                   f"[BR] {EMOJI['cultural']} Dia dos Pais", "Father's Day."),
             event(f"criancas-{year}", date(year, 10, 12), date(year, 10, 13),
                   f"[BR] {EMOJI['cultural']} Dia das Crianças", "Children's Day."),
-            event(f"blackfriday-{year}", date(year, 11, 28), date(year, 11, 29),
+            event(f"blackfriday-{year}", black_friday, next_day(black_friday),
                   f"[BR] {EMOJI['cultural']} Black Friday", "Retail event."),
             event(f"festa-junina-{year}", date(year, 6, 1), date(year, 7, 1),
                   f"[BR] {EMOJI['cultural']} Festa Junina Season", "Cultural month."),
         ]
 
+        # =========================
         # EASTER-BASED HOLIDAYS
-        easter_sunday = easter(year)
-        good_friday = easter_sunday - timedelta(days=2)
-        carnival_monday = easter_sunday - timedelta(days=47)
+        # =========================
+        easter_sunday  = easter(year)
+        good_friday    = easter_sunday - timedelta(days=2)
+        carnival_monday  = easter_sunday - timedelta(days=47)
         carnival_tuesday = easter_sunday - timedelta(days=46)
-        ash_wednesday = easter_sunday - timedelta(days=45)
-        corpus_christi = easter_sunday + timedelta(days=60)
+        ash_wednesday    = easter_sunday - timedelta(days=45)
+        corpus_christi   = easter_sunday + timedelta(days=60)
 
         events += [
             event(f"carnaval-mon-{year}", carnival_monday, next_day(carnival_monday),
@@ -149,10 +165,12 @@ def generate_events():
                   f"[BR] {EMOJI['holiday']} Corpus Christi", "Religious observance."),
         ]
 
+        # =========================
         # CONDITIONAL EVENTS
         # Only added when the year has an explicit entry in the dicts above.
         # To add future editions, insert entries in ELECTION_ROUNDS and
         # WORLD_CUP_PERIODS at the top of this file.
+        # =========================
 
         if year in ELECTION_ROUNDS:
             round1, round2 = ELECTION_ROUNDS[year]
@@ -207,17 +225,12 @@ def main():
     try:
         print(f"Generating calendar events from {START_YEAR} to {START_YEAR + YEARS_AHEAD - 1}...")
         events = generate_events()
-
         print(f"Generated {len(events)} events.")
-
         ics_content = build_ics(events)
-
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             f.write(ics_content)
-
         print(f"✅ ICS file successfully created: {OUTPUT_FILE}")
         print(f"📅 Total events: {len(events)}")
-
     except Exception as e:
         print(f"❌ Error generating calendar: {e}")
         raise
